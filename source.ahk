@@ -1,6 +1,8 @@
 ﻿SetWorkingDir %A_ScriptDir% 
 #Include %A_LineFile%\..\config.ahk
 
+global currentMenuItem := 1;
+
 ;Get the monitor Height and Width
 SysGet, v_monitor, Monitor
 v_maxScreenWidth = %v_monitorRight%
@@ -53,6 +55,7 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	Send {Delete}										;Clear any existing text from IP box
 	SendRaw %ipAddress%									;Type in the IP address
 	f_screenCoordsPercent(0.55, 0.55, xMax, yMax)		;Click Connect
+	Sleep 1500
 	f_screenCoordsPercent(0.865, 0.945, xMax, yMax, 1)	;Hover over loading text
 	f_sleepLoading()									;Wait for for the loading text to disappear
 	Sleep 500											;Wait a moment
@@ -69,6 +72,10 @@ f_EKeySpam(){
 	while (getKeyState("E", "P"))
 	{
 		SendInput e
-		sleep, 100
+		sleep, 90
 	}
+}
+
+f_menuScrollUp(){
+	
 }
