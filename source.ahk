@@ -64,11 +64,11 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 
 ;this should be reworked to allow for any key, rather than just e.
 f_EKeySpam(){
-	send e
+	SendInput e
 	Sleep 1000
 	while (getKeyState("E", "P"))
 	{
-		send e
+		SendInput e
 		sleep, 100
 	}
 }
