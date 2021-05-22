@@ -62,6 +62,7 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	BlockInput Off
 }
 
+;this should be reworked to allow for any key, rather than just e.
 f_EKeySpam(){
 	send e
 	Sleep 1000
