@@ -41,7 +41,7 @@ f_sleepLoading(){
 	Return
 }
 
-logInToValheim(xMax, yMax, ipAddress, loginPassword){
+f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	BlockInput On
 	;From the start menu, after the title sequence:
 	f_screenCoordsPercent(0.50, 0.76, xMax, yMax)		;Click Start Game
@@ -62,3 +62,12 @@ logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	BlockInput Off
 }
 
+f_EKeySpam(){
+	send e
+	Sleep 1000
+	while (getKeyState("E", "P"))
+	{
+		send e
+		sleep, 100
+	}
+}

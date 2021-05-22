@@ -5,11 +5,15 @@
 
 
 !+j::
-	logInToValheim(v_monitorRight, v_monitorBottom, valheimIP, valheimPW)
+	f_logInToValheim(v_monitorRight, v_monitorBottom, valheimIP, valheimPW)
 Return
 
 !+c::
 	Send {F5}
+Return
+
+e::
+	f_EKeySpam()
 Return
 
 
