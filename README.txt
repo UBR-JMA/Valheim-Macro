@@ -1,6 +1,7 @@
 !!IMPORTANT!!
 
 To set up this macro:
+	- Install this project by clicking the 'code' button, then download zip.
 	- Make sure Auto HotKey is installed.
 	- Make sure the IP address matches the correct IP in the config file.
 	- Change the macro hotkey in valheimMacro.ahk to your liking.
