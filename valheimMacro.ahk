@@ -8,18 +8,23 @@
 	f_logInToValheim(v_monitorRight, v_monitorBottom, valheimIP, valheimPW)
 Return
 
-!+c::
-	Send {F5}
+e::
+	f_ActivateKeySpam() 
 Return
 
-e::
-	f_EKeySpam()
+!+t::	
+	f_StartTestingMode() 
 Return
+
+
 
 
 /*=========================================================================================
 ||
-||	-The default is {Alt}+{Shift}+j
+||	-The default is {Alt}+{Shift}+j (j for join) for instant login
+||	-The activation key (e by default) will now activate rapidly and repeatedly if held down for more than 1 second.
+||	-The default for instant devcommands is {Alt}+{Shift}+t (t for testing).
+||		-This starts decommands and debug mode as well as a few other tools.
 ||	-To change the macro key combo, change the stuff that comes before the '::'
 ||		-Each modifier key has an associated symbol
 ||			-Shift is denoted with a '+'
