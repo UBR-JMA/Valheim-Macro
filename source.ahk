@@ -50,20 +50,21 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	BlockInput MouseMove
 	;From the start menu, after the title sequence:
 	f_MouseMoveScreenPercent(0.50, 0.76, xMax, yMax)		;Click Start Game
-	f_MouseMoveScreenPercent(0.5, 0.95, xMax, yMax)		;Click Start 
+	f_MouseMoveScreenPercent(0.5, 0.95, xMax, yMax)			;Click Start 
 	f_MouseMoveScreenPercent(0.25, 0.21, xMax, yMax)		;Click Join Game 
 	f_MouseMoveScreenPercent(0.35, 0.65, xMax, yMax)		;Click Join IP 
 	f_MouseMoveScreenPercent(0.4, 0.5, xMax, yMax)			;Click Textbox 
-	SendInput ^a										;Highlight any text in the text box
-	SendInput {Delete}									;Clear any existing text from IP box
-	SendInput %ipAddress%								;Type in the IP address
+	SendInput ^a											;Highlight any text in the text box
+	SendInput {Delete}										;Clear any existing text from IP box
+	SendInput %ipAddress%									;Type in the IP address
+	Sleep 100
 	f_MouseMoveScreenPercent(0.55, 0.55, xMax, yMax)		;Click Connect
 	Sleep 1500
 	f_MouseMoveScreenPercent(0.865, 0.945, xMax, yMax, 1)	;Hover over loading text
-	f_sleepLoading()									;Wait for for the loading text to disappear
-	Sleep 500											;Wait a moment
-	SendInput %loginPassword%							;Type in the Password
-	Sleep 500											;Wait a moment
+	f_sleepLoading()										;Wait for for the loading text to disappear
+	Sleep 500												;Wait a moment
+	SendInput %loginPassword%								;Type in the Password
+	Sleep 500												;Wait a moment
 	SendInput {Enter}										;Submit Password
 	BlockInput MouseMoveOff								
 	BlockInput Off
