@@ -12,6 +12,7 @@ f_MouseMoveScreenPercent(xPercent, yPercent, xMax, yMax, hover:=0){
 	xScreenCoord := xMax*xPercent
 	yScreenCoord := yMax*yPercent
 	MouseMove, %xScreenCoord%, %yScreenCoord%, 0.5
+	Sleep 100
 	if (hover != 1){
 		Click
 	}
@@ -50,8 +51,7 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	;From the start menu, after the title sequence:
 	f_MouseMoveScreenPercent(0.50, 0.76, xMax, yMax)		;Click Start Game
 	f_MouseMoveScreenPercent(0.5, 0.95, xMax, yMax)			;Click Start 
-	Sleep 60
-	f_MouseMoveScreenPercent(0.25, 0.21, xMax, yMax)		;Click Join Game 
+	f_MouseMoveScreenPercent(0.25, 0.22, xMax, yMax)		;Click Join Game 
 	f_MouseMoveScreenPercent(0.35, 0.65, xMax, yMax)		;Click Join IP 
 	f_MouseMoveScreenPercent(0.4, 0.5, xMax, yMax)			;Click Textbox 
 	SendInput ^a											;Highlight any text in the text box
