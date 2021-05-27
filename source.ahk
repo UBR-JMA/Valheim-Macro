@@ -4,8 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 
 global currentMenuItem := 1
 
-;Get the monitor Height and Width
-SysGet, v_monitor, Monitor
+SysGet, v_monitor, Monitor  ;Get the monitor Height and Width
 v_maxScreenWidth = %v_monitorRight%
 v_maxScreenHeight = %v_monitorBottom%
 
@@ -51,6 +50,7 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	;From the start menu, after the title sequence:
 	f_MouseMoveScreenPercent(0.50, 0.76, xMax, yMax)		;Click Start Game
 	f_MouseMoveScreenPercent(0.5, 0.95, xMax, yMax)			;Click Start 
+	Sleep 60
 	f_MouseMoveScreenPercent(0.25, 0.21, xMax, yMax)		;Click Join Game 
 	f_MouseMoveScreenPercent(0.35, 0.65, xMax, yMax)		;Click Join IP 
 	f_MouseMoveScreenPercent(0.4, 0.5, xMax, yMax)			;Click Textbox 
@@ -68,21 +68,19 @@ f_logInToValheim(xMax, yMax, ipAddress, loginPassword){
 	SendInput {Enter}										;Submit Password
 	BlockInput MouseMoveOff								
 	BlockInput Off
+	Return
 }
 
-;this should be reworked to allow for any key, rather than just e.
-f_ActivateKeySpam(){
+
+f_ActivateKeySpam(){ ;this should be reworked to allow for any key, rather than just e.
 	SendInput e
 	Sleep 1000
 	while (getKeyState("E", "P"))
 	{
-		SendInput e
-		sleep, 90
+		Send e
+		sleep, 100
 	}
-}
-
-f_menuScrollUp(){
-	
+	Return
 }
 
 f_StartTestingMode(){
@@ -103,5 +101,27 @@ f_StartTestingMode(){
 	SendInput b						;enable free building
 	Sleep 60
 	SendInput z						;enable flying
+	Return
+}
+	
+f_mapBreadCrumb()
+{
+	BlockInput On
+	BlockInput MouseMove
+	SendInput m											;Open the map
+	Sleep 60	
+	f_MouseMoveScreenPercent(0.5, 0.5, xMax, yMax)		;click the center of the map
+	Sleep 30
+	f_MouseMoveScreenPercent(0.5, 0.5, xMax, yMax)		;click again
+	Sleep 120	
+	SendInput {Enter} 									;Leave the name blank
+	Sleep 60	
+	SendInput m											;Close the map
+	BlockInput MouseMoveOff								
+	BlockInput Off
+	Return
 }
 
+f_menuScrollUp(){
+	
+}
